@@ -39,6 +39,13 @@ function App(props) {
           <Route path='/' element={<Home/>}/>
           <Route path='/booking' element={<PrivateRoute><Booking/></PrivateRoute>}/>
           {/* <Route path='/booking' element={<Booking/>}/> */}
+
+
+                    {/* <Route path='/private' element={<PrivateRoute/>}>
+                      <Route path= 'booking' element={<Booking/>}/>
+                    </Route> */}
+
+
           <Route path='/login' element={<LogIn2/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>

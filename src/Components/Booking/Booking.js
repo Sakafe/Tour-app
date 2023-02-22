@@ -5,6 +5,7 @@ const Booking = () => {
     return (
         <div>
             <Header/>
+            <h1>This is booking page</h1>
         </div>
     );
 };

@@ -7,6 +7,7 @@ import { FacebookAuthProvider } from "firebase/auth";
 import firebaseConfig from '../../firebaseConfig';
 import Header from '../Header/Header';
 import { MyContext } from '../../App';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 firebase.initializeApp(firebaseConfig);
 function LogIn() {
@@ -21,8 +22,13 @@ function LogIn() {
     password : '',
     photo : '',
   })
+// navigate booking page
+              const [loggedIn,setLoggedIn]= useContext(MyContext);
+              // const navigate = useNavigate();
+              // const location = useLocation();
+              // const {from} = location.state || {from :{pathname : '/booking'}};
 
-  const [loggedIn,setLoggedIn]= useContext(MyContext);
+  // end navigate booking page
   const handleSignIn = () =>{
     signInWithPopup(auth, provider)
     .then((result) =>{
@@ -147,6 +153,8 @@ function LogIn() {
           newUserInfo.success = true;
           setUser(newUserInfo);
           setLoggedIn(newUserInfo);
+          // navigate.replace(from);
+          // navigate(from, { replace: true });
           console.log('sign in user info',res.user)
   })
   .catch((error) => {
@@ -160,6 +168,7 @@ function LogIn() {
 
     }
     e.preventDefault();
+    
   }
 
   const updateUserName = (name) => {
@@ -174,6 +183,9 @@ function LogIn() {
       console.log(error);
     });
   } 
+
+
+ 
   return (
     <div>
         <Header/>
